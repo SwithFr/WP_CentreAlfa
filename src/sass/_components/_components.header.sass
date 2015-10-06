@@ -1,0 +1,54 @@
+.header
+    height: 650px
+    min-width: 100%
+    width: 100%
+    position: relative
+    margin-bottom: 1em
+
+    text-align: center
+    color: $white
+
+    background: url(./img/header.jpg) no-repeat center 55px
+    background-size: cover
+
+    +media-query(1280)
+        height: 500px
+
+    +media-query(1060)
+        height: 300px
+
+.header__logo
+    width: 15%
+    margin-top: 160px
+
+    +media-query(1280)
+        width: 10%
+
+    +media-query(1060)
+        margin-top: 85px
+
+    +media-query(550)
+        display: none
+
+.header__title
+    margin: .7em 0
+
+    color: $white
+    font-size: 3em
+    font-weight: 700
+
+    +media-query(550)
+        padding-top: 100px
+
+.header__description
+    width: 30%
+    display: inline-block
+    margin-top: .5em
+
+    font-size: 1.1em
+    line-height: 1.4
+    font-weight: 600
+
+    +media-query(1060)
+        font-size: 1em
+        width: 50%

@@ -1,0 +1,41 @@
+.footer
+    padding: 8em 0
+
+    color: $white
+    font-weight: 600
+
+    background: url(./img/footer.jpg) no-repeat center
+    background-size: cover
+
+.footer__list-item
+    margin: .5em 0
+
+.footer__subDiv
+    @include span(6)
+    padding-left: 0
+    vertical-align: top
+
+.footer__link
+    margin-bottom: .5em
+    display: block
+    color: $white
+
+    a
+      color: inherit
+
+.footer__service
+    @include span(3)
+
+.footer__nav
+    @include span(4)
+
+.footer__addresses
+    @include span(5)
+    line-height: 1.2
+
+.footer__addresses, .footer__nav, .footer__service
+    +media-query(900)
+        @include span(12)
+
+.footer__phones
+    margin-top: 1em

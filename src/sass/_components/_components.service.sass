@@ -1,0 +1,43 @@
+.service
+    @include span(6)
+    padding-top: 3em
+    padding-bottom: 3em
+
+    font-size: 1em
+    line-height: 1.9
+
+    +media-query(930)
+        @include span(12)
+
+.service__title
+    position: relative
+    display: inline-block
+    margin-bottom: 1em
+
+    letter-spacing: 2px
+    font-size: 1.85em
+    font-weight: 700
+    color: $beige
+
+    border-bottom: 1px solid $lightGrey
+    transition: all $duration
+
+.service:nth-child(2n + 1)
+    padding-right: 4em
+
+    text-align: right
+
+    border-right: 1px solid $lightGrey
+
+.service:nth-child(2n)
+    padding-left: 4em
+
+    text-align: left
+
+.service--right, .service--left
+    +media-query(930)
+        padding: 2em 3em
+
+        text-align: left
+
+        border-right: none

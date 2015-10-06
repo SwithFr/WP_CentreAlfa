@@ -1,0 +1,264 @@
+doctype html
+html( lang='fr' )
+    head
+        meta( charset='utf-8' )/
+        meta( name='viewport', content='width=device-width, minimum-scale=1.0' )/
+        title Page d'accueil du centre alfa
+        link( rel="stylesheet", href="./css/main.css" )
+        link( href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css')
+    body
+        // Nav
+        input( type="checkbox", id="show__nav" ).nav__input
+        label( for="show__nav" ).menu Menu
+        ul.nav.nav--sticky
+            li.nav__item 
+                a( title='Revenir à la page d‘accueil', href='#' )
+                    img.nav__logo( src="./img/logo--dark.svg", alt="Logo du centre alfa" )
+            li.nav__item
+                a( title='Revenir à la page d‘accueil', href='#' ) Accueil
+            li.nav__item
+                a( title='En savoir plus sur nous', href='#' ) À propos
+            li.nav__item
+                a.hasSub( title='Découvrez les membres de notre équipe', href='#' ) Équipe
+                ul.subnav
+                    li.subnav__item
+                        a( title="", href='#' ) Le soutient aux parents toxicomanes
+                    li.subnav__item
+                        a( title="", href='#' ) Quatres types de publics sont concernés
+                    li.subnav__item
+                        a( title="", href='#' ) Le service parenté organise également
+                    li.subnav__item
+                        a( title="", href='#' ) Le petit lapin dont le papa était un caméléon
+                    li.subnav__item
+                        a( title="", href='#' ) Personne de contact
+            li.nav__item
+                a( title='Consultez nos tarifs', href='#' ) Tarifs
+            li.nav__item
+                a( title='Page Self help', href='#' ) Self help
+            li.nav__item
+                a( title='Foire aux questions', href='#' ) FAQ
+            li.nav__item
+                a( title='Liste des liens utiles', href='#' ) Liens
+            li.nav__item
+                a( title='Consultez nos offres d‘emploi ou de stage', href='#' ) Job / Stage
+            li.nav__item
+                a( title='Nous contacter', href='#' ) Contact
+            li.nav__item
+                a( title='Nous contacter', href='#' ) Search
+                
+        // header
+        header.header
+            img.header__logo( src="./img/logo.svg", alt="Logo du centre alfa" )
+            h1.header__title
+                span.visuallyhidden Centre
+                | A.L.F.A
+            p.header__description
+             | Service de santé mentale spécialisé dans la prévention et le traitement de l'alcoolisme et des toxicomanies.
+         
+        
+        // content
+        section.wrapper
+            h2 Les services
+            
+            // subnav
+            ul.nav.nav--bordered
+                li.nav__item
+                    a.hasSub( title="En savoir plus sur le service de prévention", href="#prevention" ) Prévention
+                    ul.subnav
+                        li.subnav__item
+                            a( title="Dévouvrez notre Philosophie de travail", href='#' ) Philosophie de travail
+                        li.subnav__item
+                            a( title="", href='#' ) À qui s'adresse-t-on ?
+                        li.subnav__item
+                            a( title="", href='#' ) Types d'intervention
+                        li.subnav__item
+                            a( title="", href='#' ) Méthodologie
+                        li.subnav__item
+                            a( title="", href='#' ) Travail avec les écoles secondaires
+                        li.subnav__item
+                            a( title="", href='#' ) Le tabac et votre école
+                        li.subnav__item
+                            a( title="", href='#' ) Module d'échange pour Parents
+                        li.subnav__item
+                            a( title="", href='#' ) CTT
+                        li.subnav__item
+                            a( title="", href='#' ) Personne de contact
+                li.nav__item
+                    a.hasSub( title="En savoir plus sur le service thérapeutique", href="#therapeutique" ) Thérapeutique
+                    ul.subnav
+                        li.subnav__item
+                            a( title="", href='#' ) Consultation santé mentale et assuetudes
+                        li.subnav__item
+                            a( title="", href='#' ) Problèmatiques et sujets spécifiques
+                        li.subnav__item
+                            a( title="", href='#' ) Personne de contact
+                li.nav__item
+                    a.hasSub( title="En savoir plus sur le service de parentalité", href="#parent" ) Parentatlité
+                    ul.subnav
+                        li.subnav__item
+                            a( title="", href='#' ) Le soutient aux parents toxicomanes
+                        li.subnav__item
+                            a( title="", href='#' ) Quatres types de publics sont concernés
+                        li.subnav__item
+                            a( title="", href='#' ) Le service parenté organise également
+                        li.subnav__item
+                            a( title="", href='#' ) Le petit lapin dont le papa était un caméléon
+                        li.subnav__item
+                            a( title="", href='#' ) Personne de contact
+                li.nav__item
+                    a.hasSub( title="En savoir plus sur le service de réduction des risques", href="#srd" ) Réduction des risques
+                    ul.subnav
+                        li.subnav__item
+                            a( title="", href='#' ) Le projet des participants
+                        li.subnav__item
+                            a( title="", href='#' ) Personne de contact
+            
+            // Services presentation
+            .wrapper
+                article.service.service--left#prevention
+                    h3.service__title 
+                        | Prévention
+                    p.service__description
+                        | Inspirée du modèle thérapeutique, l’intervention préventive s’articule
+                        | sur les approches psychosociale et systémique. C’est à dire que toute 
+                        | demande d'intervention est analysée avec le demandeur afin d'adapter 
+                        | l'intervention à chaque situation. L'objectif global est toujours 
+                        | d'aider les demandeurs à développer une attitude préventive et/ou 
+                        | à gérer des problèmes de dépendance dans leur cadre professionnel ou personnel.
+                        
+                article.service.service--right#therapeutique
+                    h3.service__title 
+                        | Thérapeutique
+                    p.service__description
+                        | Nous travaillons sur rendez-vous. Les situations d'urgence peuvent 
+                        | être prises en charge, si nécessaire, par un travailleur de rue. 
+                        | Le premier entretien est assuré par un travailleur social qui va 
+                        | analyser la demande, expliquer aux demandeurs les diverses 
+                        | possibilités d'aide et proposer une orientation la plus adéquate possible.
+            
+            .wrapper
+                article.service.service--left#parent
+                    h3.service__title 
+                        | Parentalité
+                    p.service__description
+                        | Le Service "Parentalité" a été mis en place en 1994. Il est assuré par une équipe psycho- médico-sociale spécifique.
+                        | L'objectif de ce service est double :
+                        | - Permettre à des parents toxicomanes de conserver leurs droits parentaux dans les meilleures conditions  
+                        | sociales et psychologiques possibles pour l'enfant .
+                        | - Travailler en réseau avec les différentes structures amenées à intervenir dans ces situations complexes de 
+                        | parentalité et toxicomanies.
+                        
+                article.service.service--right#srd
+                    h3.service__title 
+                        | Réduction des risques
+                    p.service__description
+                        | Elle concerne tous les usages, qu’ils soient expérimentaux, récréatifs, 
+                        | ponctuels, abusifs ou inscrits dans une dépendance. Elle peut également 
+                        | s’adresser aux personnes qui s’apprêtent à consommer une drogue pour la première fois. 
+        
+        // Contact us
+        section.wrapper
+            h2 Nous contacter
+            
+            // subnav
+            ul.nav.nav--bordered
+                li.nav__item
+                    a( title="Notre adresse", href="#ourAddress" ) Notre adresse
+                li.nav__item
+                    a( title="Contacter notre antenne de réduction des risques", href="#ourAntenne" ) Antenne réduction des risques
+            
+            section.address
+                img.address__map( src="./img/map.jpg", alt="Google maps" )
+                    
+                .address__coords
+                    .address__block
+                        h3#ourAddress Notre adresse
+                        p Rue de la Madeleine, 17 4000 Liège
+                        
+                    .address__block
+                        h3 Coordonnées
+                        p Tel : 04 223 09 03
+                        p Fax : 04 223 56 86
+                        
+                        p.horaires Ouvert du lundi au vendredi de 9h à 18h
+                    
+                .address__emails
+                    h3 Emails des services
+                    
+                    dl
+                        dt.address__service-name Thérapeutique :
+                        dd.address__emails__item alfa.therapeutique@gmail.com
+                        
+                        dt.address__service-name Prévention : 
+                        dd.address__emails__item alfa.prevention.gmail
+                        
+                        dt.address__service-name Parentatlité : 
+                        dd.address__emails__item alfa.parentalite@gmail.com
+                        
+                        dt.address__service-name Social : 
+                        dd.address__emails__item alfa.servicesocial@gmail.com
+                        
+                        dt.address__service-name Direction : 
+                        dd.address__emails__item alfa.dungelhoeff@gmail.com
+                        
+                        dt.address__service-name Administration - compatibilité : 
+                        dd.address__emails__item alfa.yvettepetit@gmail.com
+            
+            section.address
+                .address2__coords
+                    .address__block
+                        h3#ourAntenne Antenne Réduction des risques
+                        p Place Xavier Neujean, 40 4000 Liège
+                        
+                    .address__block
+                        h3 Coordonnées
+                        p Tel / Fax : 04 221 21 14
+                        p GSM : 0498 87 10 91
+                        p alfa.rdr@gmail.com
+                    
+                .address__map
+                    img( src="./img/map.jpg", alt="Google maps" )
+            
+        .footer
+            .wrapper
+                section.footer__service
+                    h3.footer__block__title Les services
+                    ul
+                        li.footer__list-item 
+                            a.footer__link( href='#', title='' ) Prévention
+                        li.footer__list-item 
+                            a.footer__link( href='#', title='' ) Thérapeutique
+                        li.footer__list-item 
+                            a.footer__link( href='#', title='' ) Parentalité
+                        li.footer__list-item
+                            a.footer__link( href='#', title='' ) Réduction des risques
+                
+                section.footer__nav
+                    h3.footer__block__title Navigation
+                    .footer__subDiv
+                        a.footer__link( href='#', title='' ) Accueil
+                        a.footer__link( href='#', title='' ) À propos
+                        a.footer__link( href='#', title='' ) Équipe
+                        a.footer__link( href='#', title='' ) Tarifs
+                    .footer__subDiv
+                        a.footer__link( href='#', title='' ) Self help
+                        a.footer__link( href='#', title='' ) FAQ
+                        a.footer__link( href='#', title='' ) Liens
+                        a.footer__link( href='#', title='' ) Job / Satge
+                        
+                section.footer__addresses
+                    h3.footer__block__title Contact
+                    
+                    .footer__subDiv
+                        p Rue de la Madeleine, 17 4000 Liège
+                        
+                        .footer__phones    
+                            p Tel : 04 223 09 03
+                            p Fax : 04 223 56 86
+                        
+                    .footer__subDiv
+                        p Place Xavier Neujean, 40 4000 Liège
+                        
+                        .footer__phones    
+                            p Tel : 04 221 21 14
+                            p Fax : 0498 87 10 81
