@@ -2,12 +2,13 @@
     <div class="wrapper">
         <section class="footer__service">
             <h3 class="footer__block__title">Les services</h3>
-            <ul>
-                <li class="footer__list-item"> <a href="#" title="" class="footer__link">Prévention</a></li>
-                <li class="footer__list-item"> <a href="#" title="" class="footer__link">Thérapeutique</a></li>
-                <li class="footer__list-item"> <a href="#" title="" class="footer__link">Parentalité</a></li>
-                <li class="footer__list-item"><a href="#" title="" class="footer__link">Réduction des risques</a></li>
-            </ul>
+            <?php wp_nav_menu([
+                'theme_location'  => 'services-menu-footer',
+                'container'       => 'ul',
+                'menu_class'      => '',
+                'echo'            => true,
+                'items_wrap'      => '<ul>%3$s</ul>'
+            ]); ?>
         </section>
         <section class="footer__nav">
             <h3 class="footer__block__title">Navigation</h3>
@@ -29,17 +30,19 @@
         <section class="footer__addresses">
             <h3 class="footer__block__title">Contact</h3>
             <div class="footer__subDiv">
-                <p>Rue de la Madeleine, 17 4000 Liège</p>
+                <?php $location = get_field('google_maps', 75); ?>
+                <p><?= $location['address']; ?></p>
                 <div class="footer__phones">
-                    <p>Tel : 04 223 09 03</p>
-                    <p>Fax : 04 223 56 86</p>
+                    <p>Tel : <?= the_field('telephone', 75); ?></p>
+                    <p>Fax : <?= the_field('fax', 75); ?></p>
                 </div>
             </div>
             <div class="footer__subDiv">
-                <p>Place Xavier Neujean, 40 4000 Liège</p>
+                <?php $location = get_field('google_maps', 76); ?>
+                <p><?= $location['address']; ?></p>
                 <div class="footer__phones">
-                    <p>Tel : 04 221 21 14</p>
-                    <p>Fax : 0498 87 10 81</p>
+                    <p>Tel : <?= the_field('telephone', 76); ?></p>
+                    <p>Fax : <?= the_field('fax', 76); ?></p>
                 </div>
             </div>
         </section>
