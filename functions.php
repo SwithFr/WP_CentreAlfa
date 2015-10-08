@@ -22,6 +22,8 @@ function register_my_menus() {
             'footer-menu-1' => __( 'Footer Menu 1' ),
             'footer-menu-2' => __( 'Footer Menu 2' ),
             'services-menu' => __( 'Services Menu' ),
+            'services-menu-footer' => __( 'Services Menu Footer' ),
+            'addresses-menu' => __( 'Adresses Menu' ),
         ]
     );
 }
@@ -36,7 +38,7 @@ function create_post_type() {
             'description' => 'Administrer les coordonnées',
             'public' => true,
             'has_archive' => true,
-            'supports' => ['title', 'editor']
+            'supports' => ['title']
         ]
     );
 }
