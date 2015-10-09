@@ -41,6 +41,34 @@ function create_post_type() {
             'supports' => ['title']
         ]
     );
+
+    register_post_type( 'emails',
+        [
+            'labels' => array(
+                'name' => __( 'Emails' ),
+                'singular_name' => __( 'Email' )
+            ),
+            'description' => 'Emails des différents services',
+            'public' => true,
+            'has_archive' => true,
+            'supports' => ['title']
+        ]
+    );
+
+    register_post_type( 'sections',
+        [
+            'labels' => array(
+                'name' => __( 'Sections' ),
+                'singular_name' => __( 'Section' )
+            ),
+            'description' => 'Sections pour chaques services',
+            'public' => true,
+            'has_archive' => true,
+            'supports' => ['title', 'editor']
+        ]
+    );
+
+    register_taxonomy_for_object_type( 'category', 'sections' );
 }
 
 add_action( 'init', 'create_post_type' );
