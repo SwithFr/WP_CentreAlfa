@@ -1,7 +1,7 @@
 <div class="footer">
     <div class="wrapper">
-        <section class="footer__service">
-            <h3 class="footer__block__title">Les services</h3>
+        <div class="footer__service">
+            <p class="footer__block__title">Les services</p>
             <?php wp_nav_menu([
                 'theme_location'  => 'services-menu-footer',
                 'container'       => 'ul',
@@ -9,26 +9,26 @@
                 'echo'            => true,
                 'items_wrap'      => '<ul>%3$s</ul>'
             ]); ?>
-        </section>
-        <section class="footer__nav">
-            <h3 class="footer__block__title">Navigation</h3>
+        </div>
+        <div class="footer__nav">
+            <p class="footer__block__title">Navigation</p>
             <?php wp_nav_menu([
                 'theme_location'  => 'footer-menu-1',
-                'container'       => 'div',
+                'container'       => false,
                 'menu_class'      => 'footer__subDiv',
                 'echo'            => true,
                 'items_wrap'      => '<ul class="%2$s">%3$s</ul>'
             ]); ?>
             <?php wp_nav_menu([
                 'theme_location'  => 'footer-menu-2',
-                'container'       => 'div',
+                'container'       => false,
                 'menu_class'      => 'footer__subDiv',
                 'echo'            => true,
                 'items_wrap'      => '<ul class="%2$s">%3$s</ul>'
             ]); ?>
-        </section>
-        <section class="footer__addresses">
-            <h3 class="footer__block__title">Contact</h3>
+        </div>
+        <div class="footer__addresses">
+            <p class="footer__block__title">Contact</p>
             <div class="footer__subDiv">
                 <?php $location = get_field('google_maps', 75); ?>
                 <p><?= $location['address']; ?></p>
@@ -45,7 +45,7 @@
                     <p>Fax : <?= the_field('fax', 76); ?></p>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
 </div>
 </body>
