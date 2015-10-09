@@ -20,6 +20,6 @@
         ]); ?>
         <!-- header-->
         <header class="header"><img src="<?= get_bloginfo('template_directory'); ?>/img/logo.svg" alt="Logo du centre alfa" class="header__logo">
-            <h1 class="header__title"><span class="visuallyhidden">Centre</span>A.L.F.A</h1>
+            <h1 class="header__title"><span class="visuallyhidden">Centre </span>A.L.F.A</h1>
             <p class="header__description"><?php bloginfo('description'); ?></p>
         </header>
