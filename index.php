@@ -7,46 +7,30 @@
         'menu_class'      => 'nav nav--bordered',
         'echo'            => true,
         'items_wrap'      => '<ul class="%2$s">%3$s</ul>'
-    ]); ?>
+    ]);
+
+    $service_categories = get_terms( 'services-categories' );
+    usort($service_categories, 'sortArrayByProperty');
+    $i = 1;
+    ?>
     <div class="wrapper">
-        <?php $query = new WP_Query([
-            'category_name' => 'Services',
-            'cat' => -6,
-            'order' => 'ASC',
-            'posts_per_page' => 2
-        ]); ?>
-        <?php if ($query->have_posts()) : ?>
-            <?php while ($query->have_posts()) : $query->the_post(); ?>
-                <article id="<?php the_ID(); ?>" class="service">
-                    <h3 class="service__title"><?php the_title(); ?></h3>
-                    <p class="service__description">
-                        <?php the_content(); ?>
-                    </p>
-                </article>
-            <?php endwhile; ?>
-        <?php endif; ?>
-    </div>
-    <div class="wrapper">
-        <?php $query = new WP_Query([
-            'category_name' => 'Services',
-            'cat' => -6,
-            'order' => 'ASC'
-        ]); ?>
-        <?php if ($query->have_posts()) : ?>
-            <?php $i = 0; ?>
-            <?php while ($query->have_posts()) : $query->the_post(); ?>
-                <?php if($i >= 2): ?>
-                    <article id="<?php the_ID(); ?>" class="service">
-                        <h3 class="service__title"><?php the_title(); ?></h3>
-                        <p class="service__description">
-                            <?php the_content(); ?>
-                        </p>
-                    </article>
-                <?php endif; ?>
+        <?php foreach($service_categories as $sc): ?>
+            <?php if($i % 2 != 0): ?>
+                <div class="wrapper">
                 <?php $i++; ?>
-            <?php endwhile; ?>
-            <?php wp_reset_postdata(); ?>
-        <?php endif; ?>
+            <?php else: ?>
+                <?php $i = 1; ?>
+            <?php endif; ?>
+            <article id="--><?= $sc->id; ?><!--" class="service">
+                <h3><a class="service__title" href="<?= get_term_link( $sc ); ?>"><?= $sc->name; ?></a></h3>
+                <p class="service__description">
+                    <?= $sc->description; ?>
+                </p>
+            </article>
+            <?php if($i % 2 != 0): ?>
+                </div>
+            <?php endif; ?>
+        <?php endforeach; ?>
     </div>
 </section>
     <section class="wrapper">
