@@ -15,7 +15,7 @@
     margin-bottom: 1em
 
     letter-spacing: 2px
-    font-size: 1.85em
+    font-size: 1.58em
     font-weight: 700
     color: $brown
 
@@ -41,3 +41,43 @@
         text-align: left
 
         border-right: none
+
+.services
+    width: 60%
+    margin: 0 auto
+
+.subservice
+    margin: 4em 0
+
+    line-height: 1.7
+
+.subservice__title
+    color: $brown
+    font-size: 1.5em
+
+.subservice__content
+    strong
+      font-weight: 600
+
+    ol
+      counter-reset: item
+
+      li
+        display: block
+        margin-left: 1.5em
+        margin-bottom: 1em
+        position: relative
+
+        &:before
+          content: counter(item) ". "
+          counter-increment: item
+          margin-left: -1.5em
+
+          color: $brown
+
+    em
+      font-style: italic
+
+    blockquote
+      font-style: italic
+      color: $grey
