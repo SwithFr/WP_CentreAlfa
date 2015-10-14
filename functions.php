@@ -126,11 +126,25 @@ function create_posts_type() {
         ]
     );
     remove_post_type_support( 'questions', 'title' );
+
+    // Liens
+    register_post_type( 'liens',
+        [
+            'labels' => array(
+                'name' => __( 'Liens' ),
+                'singular_name' => __( 'Lien' ),
+                'add_new_item' => 'Ajouter un nouveau lien'
+            ),
+            'description' => 'Gérer les liens',
+            'public' => true,
+            'has_archive' => true,
+            'supports' => ['title'],
+            'menu_icon' => 'dashicons-admin-links'
+        ]
+    );
 }
 
 function register_taxonomies() {
-    // Sections
-    register_taxonomy_for_object_type( 'category', 'sections' );
 
     // Membres
     register_taxonomy( 'equipes', 'membres', [
@@ -284,10 +298,20 @@ function sortArrayByProperty($a, $b) {
     return $a->term_id > $b->term_id ? 1 : -1;
 }
 
+# Change default title placeholder for links
+function wpfstop_change_default_title( $title ){
+    $screen = get_current_screen();
+    if ( 'liens' == $screen->post_type ){
+        $title = 'Nom du lien';
+    }
+    return $title;
+}
+
 # Filters
 add_filter('manage_membres_posts_columns' , 'set_membres_columns');
 add_filter('manage_tarifs_posts_columns' , 'set_tarifs_columns');
 add_filter('manage_questions_posts_columns' , 'set_questions_columns');
+add_filter( 'enter_title_here', 'wpfstop_change_default_title' );
 
 # Actions
 add_action( 'admin_menu', 'custom_menu_page_removing' );
