@@ -12,6 +12,7 @@
     $service_categories = get_terms( 'services-categories' );
     usort($service_categories, 'sortArrayByProperty');
     $i = 1;
+    get_search_form();
     ?>
     <div class="wrapper">
         <?php foreach($service_categories as $sc): ?>
