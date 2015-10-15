@@ -286,7 +286,7 @@ function my_manage_questions_columns( $column, $post_id ) {
 # Remove item from menu
 function custom_menu_page_removing() {
     remove_menu_page( 'index.php' ); //Dashboard
-    remove_menu_page( 'edit.php' ); // Posts
+    //remove_menu_page( 'edit.php' ); // Posts
     remove_menu_page( 'tools.php' ); // Tools
     remove_menu_page( 'edit-comments.php' ); //Comments
     remove_menu_page( 'users.php' ); //Users
@@ -307,11 +307,22 @@ function wpfstop_change_default_title( $title ){
     return $title;
 }
 
+# Order search results by post_typ
+function my_sort_custom( $orderby, $query ){
+    global $wpdb;
+
+    if(!is_admin() && is_search())
+        $orderby =  $wpdb->prefix."posts.post_type ASC, {$wpdb->prefix}posts.post_date DESC";
+
+    return  $orderby;
+}
+
 # Filters
 add_filter('manage_membres_posts_columns' , 'set_membres_columns');
 add_filter('manage_tarifs_posts_columns' , 'set_tarifs_columns');
 add_filter('manage_questions_posts_columns' , 'set_questions_columns');
 add_filter( 'enter_title_here', 'wpfstop_change_default_title' );
+add_filter('posts_orderby','my_sort_custom',10,2);
 
 # Actions
 add_action( 'admin_menu', 'custom_menu_page_removing' );
