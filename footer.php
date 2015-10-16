@@ -48,5 +48,6 @@
         </div>
     </div>
 </div>
+<script src="<?= get_template_directory_uri(); ?>/js/main.js"></script>
 </body>
 </html>
