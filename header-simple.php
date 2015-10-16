@@ -22,4 +22,5 @@
             'echo'            => true,
             'items_wrap'      => '<ul class="%2$s">%3$s</ul>'
         ]); ?>
+        <?php get_search_form(); ?>
         <h1 class="visuallyhidden"><?= $title; ?></h1>
