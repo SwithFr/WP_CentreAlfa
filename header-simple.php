@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, minimum-scale=1.0">
         <?php
             $title = single_cat_title( 'Service ', false );
+            $title = empty($title) ? 'Resultats de la recherche ' . get_search_query() : $title;
             $title = empty($title) ? get_the_title() : $title;
         ?>
         <title><?= $title; ?> - <?php bloginfo( 'name' ); ?></title>
