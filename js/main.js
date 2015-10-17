@@ -1,6 +1,6 @@
 (function() {
   "user strict";
-  var btn, close, errorMsg, fRestoreSearchform, fShowSearchform, input, search;
+  var btn, close, errorMsg, fHideNav, fRestoreSearchform, fShowNav, fShowSearchform, hiddenNav, input, search;
 
   input = document.querySelector(".searchform__input");
 
@@ -11,6 +11,8 @@
   close = document.querySelector("#close");
 
   errorMsg = document.querySelector("#errorMsg");
+
+  hiddenNav = document.querySelector("#hiddenNav");
 
   fRestoreSearchform = function(submited) {
     search.style.width = 'auto';
@@ -29,7 +31,8 @@
     btn.style.height = '40px';
     btn.style.marginLeft = '5px';
     close.style.display = 'none';
-    return errorMsg.innerHTML = "";
+    errorMsg.innerHTML = "";
+    return fHideNav();
   };
 
   fShowSearchform = function() {
@@ -48,7 +51,16 @@
     btn.style.width = '50px';
     btn.style.height = '50px';
     btn.style.marginLeft = '50px';
-    return close.style.display = 'inline-block';
+    close.style.display = 'inline-block';
+    return fShowNav();
+  };
+
+  fShowNav = function() {
+    return hiddenNav.style.display = 'block';
+  };
+
+  fHideNav = function() {
+    return hiddenNav.style.display = 'none';
   };
 
   input.addEventListener('focus', function() {
