@@ -142,6 +142,22 @@ function create_posts_type() {
             'menu_icon' => 'dashicons-admin-links'
         ]
     );
+
+    // Contact self help
+    register_post_type( 'contact-self-help',
+        [
+            'labels' => array(
+                'name' => __( 'Contacts Self-Help' ),
+                'singular_name' => __( 'Contact Self-Help' ),
+                'add_new_item' => 'Ajouter un nouveau contact'
+            ),
+            'description' => 'Gérer les contact',
+            'public' => true,
+            'has_archive' => true,
+            'supports' => ['title'],
+            'menu_icon' => 'dashicons-id'
+        ]
+    );
 }
 
 function register_taxonomies() {
@@ -167,6 +183,21 @@ function register_taxonomies() {
         'labels' => [
             'name' => 'Catégories Services',
             'singular_name' => 'Catégorie Service',
+            'add_new_item' => 'Ajouter une nouvelle catégorie',
+            'edit_item' => 'Editer une catégorie',
+            'update_item' => 'Editer une catégorie',
+            'view_item' => 'Voir une catégorie'
+        ],
+        'show_in_menu' => true,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'hierarchical' => true
+    ] );
+
+    // Self-help-type
+    register_taxonomy( 'self-help-types', 'contact-self-help', [
+        'labels' => [
+            'name' => 'Self-Hepl',
             'add_new_item' => 'Ajouter une nouvelle catégorie',
             'edit_item' => 'Editer une catégorie',
             'update_item' => 'Editer une catégorie',
@@ -286,12 +317,15 @@ function my_manage_questions_columns( $column, $post_id ) {
 # Remove item from menu
 function custom_menu_page_removing() {
     remove_menu_page( 'index.php' ); //Dashboard
-    //remove_menu_page( 'edit.php' ); // Posts
+    remove_menu_page( 'edit.php' ); // Posts
     remove_menu_page( 'tools.php' ); // Tools
     remove_menu_page( 'edit-comments.php' ); //Comments
     remove_menu_page( 'users.php' ); //Users
     remove_menu_page( 'upload.php' ); //Media
-    //remove_menu_page( 'themes.php' ); // Apparance
+    remove_menu_page( 'themes.php' ); // Apparance
+    remove_menu_page( 'plugins.php' ); //Plugins
+    remove_menu_page( 'options-general.php' ); //Settings
+    remove_menu_page( 'edit.php?post_type=acf' ); //ACF
 }
 
 function sortArrayByProperty($a, $b) {
@@ -303,6 +337,9 @@ function wpfstop_change_default_title( $title ){
     $screen = get_current_screen();
     if ( 'liens' == $screen->post_type ){
         $title = 'Nom du lien';
+    }
+    if ( 'contact-self-help' == $screen->post_type ){
+        $title = 'Nom du contact';
     }
     return $title;
 }
@@ -317,6 +354,23 @@ function my_sort_custom( $orderby, $query ){
     return  $orderby;
 }
 
+function wpse_56569_remove_cat_tag_description(){
+    global $current_screen;
+    switch ( $current_screen->id )
+    {
+        case 'edit-self-help-types':
+            ?>
+            <script type="text/javascript">
+                jQuery(document).ready( function($) {
+                    $('#tag-description').parent().remove();
+                    $('#tag-slug').parent().remove();
+                });
+            </script>
+            <?php
+            break;
+    }
+}
+
 # Filters
 add_filter('manage_membres_posts_columns' , 'set_membres_columns');
 add_filter('manage_tarifs_posts_columns' , 'set_tarifs_columns');
@@ -325,7 +379,7 @@ add_filter( 'enter_title_here', 'wpfstop_change_default_title' );
 add_filter('posts_orderby','my_sort_custom',10,2);
 
 # Actions
-add_action( 'admin_menu', 'custom_menu_page_removing' );
+add_action( 'admin_init', 'custom_menu_page_removing' );
 add_action( 'manage_membres_posts_custom_column', 'my_manage_membres_columns', 10, 2 );
 add_action( 'manage_tarifs_posts_custom_column', 'my_manage_tarifs_columns', 10, 2 );
 add_action( 'manage_questions_posts_custom_column', 'my_manage_questions_columns', 10, 2 );
@@ -334,3 +388,4 @@ add_action( 'init', 'register_taxonomies' );
 add_action( 'init', 'register_my_menus' );
 add_action( 'widgets_init', 'themename_widgets_init' );
 add_action( 'after_setup_theme', 'CentreAlfa_setup' );
+add_action( 'admin_footer-edit-tags.php', 'wpse_56569_remove_cat_tag_description' );
