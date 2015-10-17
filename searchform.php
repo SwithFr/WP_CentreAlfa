@@ -11,3 +11,11 @@
     </button>
     <span id="errorMsg" class="searchform__error"></span>
 </form>
+
+<?php wp_nav_menu([
+    'theme_location'  => 'header-menu',
+    'container'       => 'ul',
+    'menu_class'      => 'nav nav--hidden',
+    'echo'            => true,
+    'items_wrap'      => '<ul id="hiddenNav" class="%2$s">%3$s</ul>'
+]); ?>
