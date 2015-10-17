@@ -23,7 +23,7 @@
         <?php if ($query->have_posts()) : ?>
             <?php while ($query->have_posts()) : $query->the_post(); ?>
                 <article class="subservice">
-                    <h3 class="subservice__title"><?php the_title() ; ?></h3>
+                    <h3 id="<?= $post->post_name; ?>" class="subservice__title"><?php the_title() ; ?></h3>
                     <div class="subservice__content"><?php the_content(); ?></div>
                 </article>
             <?php endwhile; ?>
