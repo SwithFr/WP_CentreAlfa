@@ -42,6 +42,9 @@
   border: none
   background-color: transparent
 
+  svg
+    max-width: 100%
+
   &:hover
     cursor: pointer
 
@@ -69,3 +72,11 @@
 .result__type
   font-size: 2em
   font-weight: 700
+
+.result__mail, .result__membre
+  width: 28%
+  display: inline-block
+  
+  &:not(:last-child)
+    border-right: 1px dashed $lightGrey
+    margin-right: 2em
