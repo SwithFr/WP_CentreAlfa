@@ -7,8 +7,7 @@
             <?php endwhile; ?>
         <?php endif; ?>
     </section>
-    <section class="wrapper">
-        <h2>Nos adresses</h2>
+    <div class="wrapper">
         <!-- subnav-->
         <?php wp_nav_menu([
             'theme_location'  => 'addresses-menu',
@@ -84,7 +83,7 @@
                 <?php endwhile; ?>
             <?php endif; ?>
         </section>
-    </section>
+    </div>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script src="<?= get_template_directory_uri(); ?>/js/jquery.js"></script>
     <script src="<?= get_template_directory_uri(); ?>/js/maps.js"></script>
