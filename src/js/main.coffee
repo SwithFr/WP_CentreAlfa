@@ -5,6 +5,7 @@ search = document.querySelector "#searchform"
 btn = document.querySelector "#searchsubmit"
 close = document.querySelector "#close"
 errorMsg = document.querySelector "#errorMsg"
+hiddenNav = document.querySelector "#hiddenNav"
 
 fRestoreSearchform = ( submited ) ->
   search.style.width = 'auto'
@@ -27,6 +28,8 @@ fRestoreSearchform = ( submited ) ->
 
   errorMsg.innerHTML = ""
 
+  fHideNav()
+
 fShowSearchform = () ->
   search.style.width = '100%'
   search.style.height = '100%'
@@ -47,6 +50,14 @@ fShowSearchform = () ->
   btn.style.marginLeft = '50px'
 
   close.style.display = 'inline-block'
+
+  fShowNav()
+
+fShowNav = () ->
+  hiddenNav.style.display = 'block'
+
+fHideNav = () ->
+  hiddenNav.style.display = 'none'
 
 # Whene focus on search input
 input.addEventListener(
