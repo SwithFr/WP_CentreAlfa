@@ -27,7 +27,6 @@ gulp.task('sass', function() {
 gulp.task('coffee', function() {
   gulp.src('./src/js/*.coffee')
     .pipe(coffee())
-    .pipe(uglify())
     .pipe(gulp.dest('./js'))
     .pipe(browserSync.stream());
 });
