@@ -12,7 +12,6 @@
     $service_categories = get_terms( 'services-categories' );
     usort($service_categories, 'sortArrayByProperty');
     $i = 1;
-    get_search_form();
     ?>
     <div class="wrapper">
         <?php foreach($service_categories as $sc): ?>
@@ -22,12 +21,12 @@
             <?php else: ?>
                 <?php $i = 1; ?>
             <?php endif; ?>
-            <article id="--><?= $sc->id; ?><!--" class="service">
+            <section id="--><?= $sc->id; ?><!--" class="service">
                 <h3><a class="service__title" href="<?= get_term_link( $sc ); ?>"><?= $sc->name; ?></a></h3>
                 <p class="service__description">
                     <?= $sc->description; ?>
                 </p>
-            </article>
+            </section>
             <?php if($i % 2 != 0): ?>
                 </div>
             <?php endif; ?>
