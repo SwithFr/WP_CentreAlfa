@@ -27,8 +27,8 @@
     if (!submited) {
       input.value = '';
     }
-    btn.style.width = '30px';
-    btn.style.height = '40px';
+    btn.style.width = '15px';
+    btn.style.height = '15px';
     btn.style.marginLeft = '5px';
     close.style.display = 'none';
     errorMsg.innerHTML = "";
@@ -36,8 +36,8 @@
   };
 
   fShowSearchform = function() {
-    search.style.width = '100%';
-    search.style.height = '100%';
+    search.style.width = window.innerWidth + 'px';
+    search.style.height = window.innerHeight + 'px';
     search.style.right = '0';
     search.style.backgroundColor = 'white';
     search.style.padding = '15%';
