@@ -1,83 +1,98 @@
 .service
-    @include span(6)
-    padding-top: 3em
-    padding-bottom: 3em
+  @include span(6)
+  padding-top: 3em
+  padding-bottom: 3em
 
-    font-size: 1em
-    line-height: 1.9
+  font-size: 1em
+  line-height: 1.9
 
-    +media-query(930)
-        @include span(12)
+  +media-query(930)
+    @include span(12)
+
+    line-height: 1.5
+    font-size: .9em
 
 .service__title
-    position: relative
-    display: inline-block
-    margin-bottom: 1em
+  position: relative
+  display: inline-block
+  margin-bottom: 1em
 
-    letter-spacing: 2px
-    font-size: 1.58em
-    font-weight: 700
-    color: $brown
+  letter-spacing: 2px
+  font-size: 1.58em
+  font-weight: 700
+  color: $brown
 
-    border-bottom: 1px solid $lightGrey
-    transition: all $duration
+  border-bottom: 1px solid $lightGrey
+  transition: all $duration
+
+  +media-query(930)
+    margin-bottom: .5em
+
+    font-size: 1.1em
+    letter-spacing: 0
 
 .service:nth-child(2n + 1)
-    padding-right: 4em
+  padding-right: 4em
 
-    text-align: right
+  text-align: right
 
-    border-right: 1px solid $lightGrey
+  border-right: 1px solid $lightGrey
+
+  +media-query(930)
+    padding: 1em
+    text-align: left
+    border-right: none
 
 .service:nth-child(2n)
-    padding-left: 4em
+  padding-left: 4em
 
-    text-align: left
+  text-align: left
+
+  +media-query(930)
+    padding: 1em
 
 .service--right, .service--left
-    +media-query(930)
-        padding: 2em 3em
+  +media-query(930)
+    text-align: left
 
-        text-align: left
-
-        border-right: none
+    border-right: none
 
 .services
-    width: 60%
-    margin: 0 auto
+  width: 60%
+  margin: 0 auto
 
 .subservice
-    margin: 4em 0
+  margin: 4em 0
 
-    line-height: 1.7
+  line-height: 1.7
 
 .subservice__title
-    color: $brown
-    font-size: 1.5em
+  color: $brown
+  font-size: 1.5em
 
 .subservice__content
-    strong
-      font-weight: 600
+  strong
+    font-weight: 600
 
-    ol
-      counter-reset: item
+  ol
+    counter-reset: item
 
-      li
-        display: block
-        margin-left: 1.5em
-        margin-bottom: 1em
-        position: relative
+    li
+      display: block
+      margin-left: 1.5em
+      margin-bottom: 1em
+      position: relative
 
-        &:before
-          content: counter(item) ". "
-          counter-increment: item
-          margin-left: -1.5em
+      &:before
+        content: counter(item) ". "
+        counter-increment: item
+        margin-left: -1.5em
 
-          color: $brown
+        color: $brown
 
-    em
-      font-style: italic
+  em
+    font-style: italic
 
-    blockquote
-      font-style: italic
-      color: $grey
+  blockquote
+    font-style: italic
+    color: $grey
