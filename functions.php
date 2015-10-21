@@ -4,17 +4,6 @@ function CentreAlfa_setup() {
     add_theme_support("post-thumbnails");
 }
 
-//function themename_widgets_init() {
-//    register_sidebar( array(
-//        'name'          => __( 'Menu', 'CentreAlfa' ),
-//        'id'            => 'sidebar-1',
-//        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-//        'after_widget'  => '</aside>',
-//        'before_title'  => '<h1 class="widget-title">',
-//        'after_title'   => '</h1>',
-//    ) );
-//}
-
 function register_my_menus() {
     register_nav_menus(
         [
@@ -386,6 +375,5 @@ add_action( 'manage_questions_posts_custom_column', 'my_manage_questions_columns
 add_action( 'init', 'create_posts_type' );
 add_action( 'init', 'register_taxonomies' );
 add_action( 'init', 'register_my_menus' );
-add_action( 'widgets_init', 'themename_widgets_init' );
 add_action( 'after_setup_theme', 'CentreAlfa_setup' );
 add_action( 'admin_footer-edit-tags.php', 'wpse_56569_remove_cat_tag_description' );
