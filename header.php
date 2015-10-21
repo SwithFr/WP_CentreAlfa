@@ -8,18 +8,23 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">
     </head>
     <body>
+    <div class="nav-container">
         <!-- Nav-->
         <input type="checkbox" id="show__nav" class="nav__input">
-        <label for="show__nav" class="menu">Menu</label>
-        <?php wp_nav_menu([
-            'theme_location'  => 'header-menu',
-            'container'       => 'ul',
-            'menu_class'      => 'nav nav--sticky',
-            'echo'            => true,
-            'items_wrap'      => '<ul class="%2$s">%3$s</ul>'
-        ]); ?>
-        <!-- header-->
-        <header class="header"><img src="<?= get_bloginfo('template_directory'); ?>/img/logo.svg" alt="Logo du centre alfa" class="header__logo">
-            <h1 class="header__title"><span class="visuallyhidden">Centre </span>A.L.F.A</h1>
-            <p class="header__description"><?php bloginfo('description'); ?></p>
-        </header>
+        <div class="nav--resonsive">
+            <label for="show__nav" id="show__nav__btn" class="menu">Menu</label>
+            <?php wp_nav_menu([
+                'theme_location'  => 'header-menu',
+                'container'       => 'ul',
+                'menu_class'      => 'nav nav--sticky',
+                'echo'            => true,
+                'items_wrap'      => '<ul class="%2$s">%3$s</ul>'
+            ]); ?>
+        </div>
+        <?php get_search_form(); ?>
+    </div>
+    <!-- header-->
+    <header class="header"><img src="<?= get_bloginfo('template_directory'); ?>/img/logo.svg" alt="Logo du centre alfa" class="header__logo">
+        <h1 class="header__title"><span class="visuallyhidden">Centre </span>A.L.F.A</h1>
+        <p class="header__description"><?php bloginfo('description'); ?></p>
+    </header>
