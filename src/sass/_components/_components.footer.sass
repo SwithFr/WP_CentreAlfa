@@ -7,6 +7,9 @@
     background: url(./img/footer.jpg) no-repeat center
     background-size: cover
 
+    +media-query(930)
+      font-size: .9em
+
 .footer__list-item
     margin: .5em 0
 
@@ -14,6 +17,10 @@
     @include span(6)
     padding-left: 0
     vertical-align: top
+
+    +media-query(930)
+      @include span(12)
+      margin: .5em 0 .5em -1.4em
 
 .footer__link
     margin-bottom: .5em
@@ -34,8 +41,9 @@
     line-height: 1.2
 
 .footer__addresses, .footer__nav, .footer__service
-    +media-query(900)
-        @include span(12)
+    +media-query(930)
+        @include span(10)
+        margin: 1em
 
 .footer__phones
     margin-top: 1em
