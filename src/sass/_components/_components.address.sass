@@ -28,11 +28,25 @@
     @include span(6)
     height: 300px
 
+    +media-query(930)
+      @include span(12)
+      margin-bottom: 1em
+
 .address__coords, .address__emails
     @include span(3)
 
+    +media-query(930)
+      @include span(12)
+      
+.address__coords
+    +media-query(930)
+      @include span(12)
+
 .address2__coords
     @include span(6)
+
+    +media-query(930)
+      @include span(12)
 
 .address__title
     margin-bottom: 1em
