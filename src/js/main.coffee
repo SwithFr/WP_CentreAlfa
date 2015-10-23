@@ -63,7 +63,7 @@ fHideNav = () ->
 input.addEventListener(
   'focus',
   () ->
-    fShowSearchform()
+    window.innerWidth > 930 && fShowSearchform()
 
   , false)
 
@@ -82,7 +82,7 @@ search.addEventListener(
   'submit',
   ( e ) ->
     val = input.value.trim()
-    fShowSearchform()
+    window.innerWidth > 930 && fShowSearchform()
     if val == ""
       e.preventDefault()
       errorMsg.innerHTML = "Veuillez saisir une recherche !"
