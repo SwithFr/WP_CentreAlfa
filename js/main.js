@@ -64,7 +64,7 @@
   };
 
   input.addEventListener('focus', function() {
-    return fShowSearchform();
+    return window.innerWidth > 930 && fShowSearchform();
   }, false);
 
   close.addEventListener('click', function(e) {
@@ -75,7 +75,7 @@
   search.addEventListener('submit', function(e) {
     var val;
     val = input.value.trim();
-    fShowSearchform();
+    window.innerWidth > 930 && fShowSearchform();
     if (val === "") {
       e.preventDefault();
       errorMsg.innerHTML = "Veuillez saisir une recherche !";
