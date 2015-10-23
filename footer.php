@@ -29,20 +29,22 @@
         </div>
         <div class="footer__addresses">
             <p class="footer__block__title">Contact</p>
-            <div class="footer__subDiv">
+            <div class="footer__subDiv h-card" itemtype="http://microformats.org/profile/hcard" itemscope>
+                <meta class="visuallyhidden org" content="Centre alfa"/>
                 <?php $location = get_field('google_maps', 75); ?>
-                <p><?= $location['address']; ?></p>
+                <p class="street-address locality postal-code country-name"><?= $location['address']; ?></p>
                 <div class="footer__phones">
-                    <p>Tel : <?= the_field('telephone', 75); ?></p>
-                    <p>Fax : <?= the_field('fax', 75); ?></p>
+                    <p itemprop="tel">Tel : <?= the_field('telephone', 75); ?></p>
+                    <p itemprop="tel">Fax : <?= the_field('fax', 75); ?></p>
                 </div>
             </div>
-            <div class="footer__subDiv">
+            <div class="footer__subDiv h-card" itemtype="http://microformats.org/profile/hcard" itemscope>
+                <meta class="visuallyhidden org" content="Centre alfa antene réduction des risques"/>
                 <?php $location = get_field('google_maps', 76); ?>
-                <p><?= $location['address']; ?></p>
+                <p class="street-address locality postal-code country-name"><?= $location['address']; ?></p>
                 <div class="footer__phones">
-                    <p>Tel : <?= the_field('telephone', 76); ?></p>
-                    <p>Fax : <?= the_field('fax', 76); ?></p>
+                    <p itemprop="tel">Tel : <?= the_field('telephone', 76); ?></p>
+                    <p itemprop="tel">Fax : <?= the_field('fax', 76); ?></p>
                 </div>
             </div>
         </div>
