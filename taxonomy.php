@@ -1,11 +1,4 @@
 <?php get_header('simple'); ?>
-    <?php wp_nav_menu([
-        'theme_location'  => 'services-menu',
-        'container'       => 'ul',
-        'menu_class'      => 'nav nav--bordered',
-        'echo'            => true,
-        'items_wrap'      => '<ul class="%2$s">%3$s</ul>'
-    ]); ?>
     <section class="wrapper services">
         <h2><?= $wp_query->queried_object->name; ?></h2>
         <?php $query = new WP_Query([
