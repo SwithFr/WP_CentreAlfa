@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes( 'lang' ); ?>>
+<html class="noHeader" <?php language_attributes( 'lang' ); ?>>
     <head>
         <meta charset="<?php bloginfo( 'charset' ); ?>">
         <meta name="viewport" content="width=device-width, minimum-scale=1.0">
@@ -29,4 +29,13 @@
         <?php get_search_form(); ?>
     </div>
     <!-- header-->
-    <h1 class="visuallyhidden"><?= $title; ?></h1>
+    <div class="wrapper">
+        <h1 class="visuallyhidden"><?= $title; ?></h1>
+        <?php wp_nav_menu([
+            'theme_location'  => 'services-menu',
+            'container'       => 'ul',
+            'menu_class'      => 'nav nav--bordered',
+            'echo'            => true,
+            'items_wrap'      => '<ul class="%2$s">%3$s</ul>'
+        ]); ?>
+    </div>
