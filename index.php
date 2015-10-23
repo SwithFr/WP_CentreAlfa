@@ -43,7 +43,7 @@
             'echo'            => true,
             'items_wrap'      => '<ul class="%2$s">%3$s</ul>'
         ]); ?>
-        <section class="address">
+        <section class="address  h-card" itemtype="http://microformats.org/profile/hcard" itemscope>
             <?php $query = new WP_Query([
                 'post_type' => 'addresses',
                 'p' => 75
@@ -55,14 +55,14 @@
                         <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
                     </div>
                     <div class="address__coords">
-                        <div class="address__block">
-                            <h3 id="ourAddress"><?php the_title(); ?></h3>
-                            <p><?= $location['address']; ?></p>
+                        <div class="address__block adr" itemprop="adr">
+                            <h3 id="ourAddress org"><?php the_title(); ?></h3>
+                            <p class="street-address region locality postal-code country-name"><?= $location['address']; ?></p>
                         </div>
                         <div class="address__block">
                             <p class="address__title">Coordonnées</p>
-                            <p>Tel : <?php the_field('telephone') ?></p>
-                            <p>Fax : <?php the_field('fax'); ?></p>
+                            <p itemprop="tel" class="tel">Tel : <?php the_field('telephone') ?></p>
+                            <p itemprop="tel" class="tel">Fax : <?php the_field('fax'); ?></p>
                             <p class="horaires">Ouvert du lundi au vendredi de 9h à 18h</p>
                         </div>
                     </div>
@@ -78,13 +78,13 @@
                     <?php if ($query->have_posts()) : ?>
                         <?php while ($query->have_posts()) : $query->the_post(); ?>
                             <dt class="address__service-name"><?php the_title(); ?> :</dt>
-                            <dd class="address__emails__item"><?php the_field('email'); ?></dd>
+                            <dd class="address__emails__item email"><?php the_field('email'); ?></dd>
                         <?php endwhile; ?>
                     <?php endif; ?>
                 </dl>
             </div>
         </section>
-        <section class="address">
+        <section class="address  h-card" itemtype="http://microformats.org/profile/hcard" itemscope>
             <?php $query = new WP_Query([
                 'post_type' => 'addresses',
                 'p' => 76
@@ -93,15 +93,15 @@
                 <?php while ($query->have_posts()) : $query->the_post(); ?>
                     <?php $location = get_field('google_maps'); ?>
                     <div class="address2__coords">
-                        <div class="address__block">
-                            <h3 id="ourAntenne"><?php the_title(); ?></h3>
-                            <p><?= $location['address']; ?></p>
+                        <div class="address__block adr" itemprop="adr">
+                            <h3 id="ourAntenne org"><?php the_title(); ?></h3>
+                            <p class="street-address region locality postal-code country-name"><?= $location['address']; ?></p>
                         </div>
                         <div class="address__block">
                             <p class="address__title">Coordonnées</p>
-                            <p>Tel / Fax : <?php the_field('fax'); ?></p>
-                            <p>GSM : <?php the_field('telephone') ?></p>
-                            <p><?= the_field('email'); ?></p>
+                            <p itemprop="tel" class="tel">Tel / Fax : <?php the_field('fax'); ?></p>
+                            <p itemprop="tel" class="tel">GSM : <?php the_field('telephone') ?></p>
+                            <p class="email"><?= the_field('email'); ?></p>
                         </div>
                     </div>
                     <div class="address__map">
